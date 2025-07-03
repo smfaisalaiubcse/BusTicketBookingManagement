@@ -4,6 +4,8 @@ A Spring Boot-based backend system for managing bus ticket bookings. Built as a 
 
 This is hosted at https://busticketbookingmanagement-production.up.railway.app
 
+You can find the postman collection at You can find the postman collection at `postman/` folder folder
+
 ---
 
 ## ✅ Features
