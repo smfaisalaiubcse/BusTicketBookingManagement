@@ -2,7 +2,7 @@
 
 A Spring Boot-based backend system for managing bus ticket bookings. Built as a university project to demonstrate practical use of **Spring Security**, **Spring JDBC**, **Spring AOP**, and **JWT-based Authentication** in a layered architecture.
 
-This is hosted at https://busticketbookingmanagement-production.up.railway.app
+This is hosted at https://buslagbe.up.railway.app/
 
 You can find the postman collection at You can find the postman collection at `postman/` folder folder
 
