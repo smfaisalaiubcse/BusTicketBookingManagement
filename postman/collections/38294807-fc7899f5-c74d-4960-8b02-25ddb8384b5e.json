@@ -1,0 +1,719 @@
+{
+	"info": {
+		"_postman_id": "38294807-fc7899f5-c74d-4960-8b02-25ddb8384b5e",
+		"name": "BusTicketBooking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "admin/stats",
+					"id": "38294807-f22ae152-4931-4c39-8ccd-f766bfc06bde",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmYWhpbUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTE5OTIyOCwiZXhwIjoxNzUxMjAyODI4fQ.K1p3Ai9bzOdeAlc-FdxlcfadZUm63h_Lrl0nQz4RjtlBtNVa6N25Eh2rxT5tIMaw6NPTFm5vgpppXYb8RIuesw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmYWlzYWxAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJpYXQiOjE3NTEzMTA3MjEsImV4cCI6MTc1MTMxNDMyMX0.bwY3YhMaGufwTfJWg0ddkHXcixelJPyLiaGciV-QFGI-WhPm5vGuHg009lXoOK7YzisH8dluhFx-iQgM3Xk2NA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"faisal@gmail.com\",\n  \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{ip}}/admin/stats",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"admin",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create trip",
+					"id": "38294807-8f9391ce-2bf4-42c7-8a71-b8847e4ac34f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmYWhpbUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTE5OTIyOCwiZXhwIjoxNzUxMjAyODI4fQ.K1p3Ai9bzOdeAlc-FdxlcfadZUm63h_Lrl0nQz4RjtlBtNVa6N25Eh2rxT5tIMaw6NPTFm5vgpppXYb8RIuesw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmYWhpbUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTE5OTIyOCwiZXhwIjoxNzUxMjAyODI4fQ.K1p3Ai9bzOdeAlc-FdxlcfadZUm63h_Lrl0nQz4RjtlBtNVa6N25Eh2rxT5tIMaw6NPTFm5vgpppXYb8RIuesw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"busId\": 1,\n  \"routeId\": 3,\n  \"departureTime\": \"2025-07-02T10:00:00\",\n  \"arrivalTime\": \"2025-07-02T18:30:00\",\n  \"price\": 650.00\n}\n"
+						},
+						"url": {
+							"raw": "{{ip}}/admin/trips/create",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"admin",
+								"trips",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bus/add",
+					"id": "38294807-08f3ed61-3ee3-4cd2-ba71-2e41957a2047",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmYWhpbUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTE5OTIyOCwiZXhwIjoxNzUxMjAyODI4fQ.K1p3Ai9bzOdeAlc-FdxlcfadZUm63h_Lrl0nQz4RjtlBtNVa6N25Eh2rxT5tIMaw6NPTFm5vgpppXYb8RIuesw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmYWhpbUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTE5OTIyOCwiZXhwIjoxNzUxMjAyODI4fQ.K1p3Ai9bzOdeAlc-FdxlcfadZUm63h_Lrl0nQz4RjtlBtNVa6N25Eh2rxT5tIMaw6NPTFm5vgpppXYb8RIuesw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Hanif Express 102\",\n  \"capacity\": 40,\n  \"company\": {\n    \"name\": \"Hanif\"\n  },\n  \"routes\": [\n    { \"name\": \"Dhaka-Bogura\" },\n    { \"name\": \"Dhaka-Chattogram\" }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{ip}}/admin/bus/add",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"admin",
+								"bus",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "route/all",
+					"id": "38294807-eaf1574c-00cf-40c3-a8df-2e7dc58273ba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmYWhpbUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTE5OTIyOCwiZXhwIjoxNzUxMjAyODI4fQ.K1p3Ai9bzOdeAlc-FdxlcfadZUm63h_Lrl0nQz4RjtlBtNVa6N25Eh2rxT5tIMaw6NPTFm5vgpppXYb8RIuesw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmYWhpbUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTE5OTIyOCwiZXhwIjoxNzUxMjAyODI4fQ.K1p3Ai9bzOdeAlc-FdxlcfadZUm63h_Lrl0nQz4RjtlBtNVa6N25Eh2rxT5tIMaw6NPTFm5vgpppXYb8RIuesw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Rozina 101\",\n  \"capacity\": 40,\n  \"company\": {\n    \"name\": \"Rozina\"\n  },\n  \"routes\": [\n    { \"name\": \"Dhaka-Saidpur\" },\n    { \"name\": \"Dhaka-Chattogram\" },\n    { \"name\": \"Dhaka-Thakurgaon\" },\n    { \"name\": \"Dhaka-Dinajpur\" }\n  ]\n}\n"
+						},
+						"url": {
+							"raw": "{{ip}}/api/routes/all",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"routes",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "route/searche/{name}",
+					"id": "38294807-bd99d5e5-4293-42da-9b12-bc8f80d6369a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmYWhpbUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTE5OTIyOCwiZXhwIjoxNzUxMjAyODI4fQ.K1p3Ai9bzOdeAlc-FdxlcfadZUm63h_Lrl0nQz4RjtlBtNVa6N25Eh2rxT5tIMaw6NPTFm5vgpppXYb8RIuesw",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJmYWhpbUBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc1MTE5OTIyOCwiZXhwIjoxNzUxMjAyODI4fQ.K1p3Ai9bzOdeAlc-FdxlcfadZUm63h_Lrl0nQz4RjtlBtNVa6N25Eh2rxT5tIMaw6NPTFm5vgpppXYb8RIuesw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Rozina 101\",\n  \"capacity\": 40,\n  \"company\": {\n    \"name\": \"Rozina\"\n  },\n  \"routes\": [\n    { \"name\": \"Dhaka-Saidpur\" },\n    { \"name\": \"Dhaka-Chattogram\" },\n    { \"name\": \"Dhaka-Thakurgaon\" },\n    { \"name\": \"Dhaka-Dinajpur\" }\n  ]\n}\n"
+						},
+						"url": {
+							"raw": "{{ip}}/api/routes/search?name=Dhaka-Chattogram",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"routes",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Dhaka-Chattogram"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "38294807-6e667a04-667f-4155-9499-f03993b1715c"
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a463d7fe-e981-4467-8e83-70fe939f9d90",
+								"exec": [
+									"let response = pm.response.json();",
+									"",
+									"if (response.token) {",
+									"    pm.globals.set(\"jwt-token\", response.token);",
+									"    console.log(\"✅ Token set successfully: \" + response.token);",
+									"} else {",
+									"    console.log(\"❌ Token not found in response!\");",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"id": "38294807-7aee2b90-b30a-44bd-a25b-70dbabdd8323",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"shakil@gmail.com\",\n  \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ip}}/api/auth/login",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"id": "38294807-ed061d9b-28e2-4d00-8890-fc3802d9d782",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"S M Shakil\",\n  \"email\": \"shakil@gmail.com\",\n  \"password\": \"1234\",\n  \"role\": \"CUSTOMER\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ip}}/api/auth/signup",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "38294807-c86812eb-d910-4688-9a24-f83aa4f0a24d"
+		},
+		{
+			"name": "Forget_pass Copy",
+			"item": [
+				{
+					"name": "forget",
+					"id": "38294807-2829c1bb-0803-4c94-929f-ce5b36597d3c",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{ip}}/api/auth/password/forgot?email=samia@gmail.com",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"password",
+								"forgot"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "samia@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset",
+					"id": "38294807-cc050ea9-b93f-49b2-a594-d3451232d790",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{ip}}/api/auth/password/reset?token=48107066-f5b9-417f-a593-7d57f5f9cff0&newPassword=1234",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"password",
+								"reset"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "48107066-f5b9-417f-a593-7d57f5f9cff0"
+								},
+								{
+									"key": "newPassword",
+									"value": "1234"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "38294807-449d6714-2848-40c5-8969-f81310da164e"
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Profile",
+					"id": "38294807-f873511f-d090-43a7-93fa-362746f7eea4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"faisal@gmail.com\",\n  \"password\": \"1234\"\n}"
+						},
+						"url": {
+							"raw": "{{ip}}/api/user/profile",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile/update",
+					"id": "38294807-bde83818-cac7-4a65-9b4c-834546806a63",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"S M Faisal\n  \",\n  \"email\": \"faisal@gmail.com\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ip}}/api/user/profile/update",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"profile",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change pass",
+					"id": "38294807-f26ca711-9c09-44b5-913e-da1f129eafa7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt-token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"oldPassword\": \"12345\",\n  \"newPassword\": \"1234\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ip}}/api/user/password/change",
+							"host": [
+								"{{ip}}"
+							],
+							"path": [
+								"api",
+								"user",
+								"password",
+								"change"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "38294807-8dd2de0b-a787-4125-93e2-571145da3084"
+		},
+		{
+			"name": "buses/search",
+			"id": "38294807-66a144d2-954c-4b84-9bfe-497d37735488",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ip}}/api/buses/search?route=Dhaka-bogura-Saidpur&fromDate=2025-07-02&toDate=2025-07-03",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"buses",
+						"search"
+					],
+					"query": [
+						{
+							"key": "route",
+							"value": "Dhaka-bogura-Saidpur"
+						},
+						{
+							"key": "fromDate",
+							"value": "2025-07-02"
+						},
+						{
+							"key": "toDate",
+							"value": "2025-07-03"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "booking",
+			"id": "38294807-e7ab8d5c-d622-44e4-a01e-22295d893e1c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"tripId\": 4,\n  \"seatNumber\": \"A35\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{ip}}/api/bookings",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bookings/my",
+			"id": "38294807-0e7c8d86-4c53-49a2-a3b1-7b323ae0405f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt-token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ip}}/api/bookings/my",
+					"host": [
+						"{{ip}}"
+					],
+					"path": [
+						"api",
+						"bookings",
+						"my"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
