@@ -319,7 +319,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"email\": \"shakil@gmail.com\",\n  \"password\": \"1234\"\n}",
+							"raw": "{\n  \"email\": \"faisal@gmail.com\",\n  \"password\": \"1234\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
