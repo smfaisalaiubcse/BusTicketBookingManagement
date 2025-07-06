@@ -7,6 +7,7 @@ import com.ticketbooking.bus_ticket_booking_system.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -37,6 +38,7 @@ public class ForgotPasswordService {
         emailService.sendSimpleEmail(email, subject, body);
     }
 
+    @Transactional
     public void resetPassword(String token, String newPassword) {
         PasswordResetToken prt = resetRepository.findValidToken(token)
                 .orElseThrow(() -> new RuntimeException("Invalid or expired token"));
@@ -45,7 +47,7 @@ public class ForgotPasswordService {
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
         user.setPassword(passwordEncoder.encode(newPassword));
-        userRepository.updatePassword(user);
+        userRepository.save(user); // ✅ replaces updatePassword()
 
         resetRepository.markTokenUsed(token);
     }

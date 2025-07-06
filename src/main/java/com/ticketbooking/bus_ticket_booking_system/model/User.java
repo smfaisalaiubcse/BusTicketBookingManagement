@@ -1,14 +1,32 @@
 package com.ticketbooking.bus_ticket_booking_system.model;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "users")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id") // match DB column
     private int userId;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
+    @Column(nullable = false, length = 256)
     private String password;
-    private Role role; // Change from `String` to `Role` enum
-    private LocalDateTime createdAt;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
+    private Role role = Role.ROLE_CUSTOMER;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     // Getters and Setters
     public int getUserId() {

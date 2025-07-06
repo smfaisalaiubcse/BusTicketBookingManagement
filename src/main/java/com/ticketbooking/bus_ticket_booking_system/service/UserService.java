@@ -6,6 +6,7 @@ import com.ticketbooking.bus_ticket_booking_system.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -27,6 +28,7 @@ public class UserService {
     }
 
 
+    @Transactional
     public void updateUserProfile(String email, User updatedData) {
         User existingUser = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -34,12 +36,13 @@ public class UserService {
         existingUser.setName(updatedData.getName());
         existingUser.setEmail(updatedData.getEmail());
 
-        userRepository.updateProfile(existingUser);
+        userRepository.save(existingUser); // ✅ This replaces updateProfile()
     }
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Transactional
     public void changePassword(String email, String oldPassword, String newPassword) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -48,9 +51,9 @@ public class UserService {
             throw new RuntimeException("Old password is incorrect.");
         }
 
-        String encodedNewPassword = passwordEncoder.encode(newPassword);
-        user.setPassword(encodedNewPassword);
-        userRepository.updatePassword(user);
+        user.setPassword(passwordEncoder.encode(newPassword));
+
+        userRepository.save(user); // ✅ This replaces updatePassword()
     }
 
 }
