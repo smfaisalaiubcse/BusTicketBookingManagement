@@ -1,7 +1,9 @@
 package com.ticketbooking.bus_ticket_booking_system.controller;
 
+import com.ticketbooking.bus_ticket_booking_system.dto.UserSignupRequest;
 import com.ticketbooking.bus_ticket_booking_system.model.User;
 import com.ticketbooking.bus_ticket_booking_system.service.AuthService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,11 +19,16 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/signup")
-    public ResponseEntity<Map<String, String>> signup(@RequestBody User user) {
+    public ResponseEntity<Map<String, String>> signup(@Valid @RequestBody UserSignupRequest request) {
+        User user = new User();
+        user.setName(request.getName());
+        user.setEmail(request.getEmail());
+        user.setPassword(request.getPassword());
+        user.setRole(request.getRole());
+
         authService.signup(user);
-        Map<String, String> response = new HashMap<>();
-        response.put("message", "User registered successfully.");
-        return ResponseEntity.ok(response);
+
+        return ResponseEntity.ok(Map.of("message", "User registered successfully."));
     }
 
     @PostMapping("/login")
